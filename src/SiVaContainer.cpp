@@ -314,7 +314,7 @@ vector<DataFile *> SiVaContainer::dataFiles() const
 
 unique_ptr<Container> SiVaContainer::openInternal(const string &path)
 {
-    static const array supported {"pdf", "ddoc"};
+    static const array supported {"pdf", "ddoc", "asics"};
     string ext = File::fileExtension(path);
     if(find(supported.cbegin(), supported.cend(), ext) == supported.cend())
         return {};

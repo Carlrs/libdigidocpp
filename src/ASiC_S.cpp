@@ -183,14 +183,16 @@ bool ASiC_S::isContainerSimpleFormat(const string &path)
     if(extension == ASICE_EXTENSION || extension == ASICE_EXTENSION_ABBR ||
        extension == BDOC_EXTENSION)
         return false;
-    if(extension == ASICS_EXTENSION || extension == ASICS_EXTENSION_ABBR)
-        return true;
+      if(extension != ASICS_EXTENSION && extension != ASICS_EXTENSION_ABBR)
+        return false;
 
-    DEBUG("Check if ASiC/zip containter");
+    DEBUG("Check if ASiC/zip container");
     try
     {
         ZipSerialize z(path, false);
         vector<string> list = z.list();
+        if(!none_of(list.cbegin(), list.cend(), [](const string &file) { return file.find("p7s") != string::npos; }))
+            return false;
         if(find(list.begin(), list.end(), "mimetype") != list.end())
         {
             stringstream iss;
