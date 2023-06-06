@@ -180,9 +180,6 @@ bool ASiC_S::isContainerSimpleFormat(const string &path)
 {
     DEBUG("isContainerSimpleFormat(path = '%s')", path.c_str());
     const auto extension = util::File::fileExtension(path);
-    if(extension == ASICE_EXTENSION || extension == ASICE_EXTENSION_ABBR ||
-       extension == BDOC_EXTENSION)
-        return false;
     if(extension != ASICS_EXTENSION && extension != ASICS_EXTENSION_ABBR)
         return false;
 
