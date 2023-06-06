@@ -183,7 +183,7 @@ bool ASiC_S::isContainerSimpleFormat(const string &path)
     if(extension == ASICE_EXTENSION || extension == ASICE_EXTENSION_ABBR ||
        extension == BDOC_EXTENSION)
         return false;
-      if(extension != ASICS_EXTENSION && extension != ASICS_EXTENSION_ABBR)
+    if(extension != ASICS_EXTENSION && extension != ASICS_EXTENSION_ABBR)
         return false;
 
     DEBUG("Check if ASiC/zip container");
